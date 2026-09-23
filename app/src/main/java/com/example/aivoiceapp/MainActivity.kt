@@ -1,17 +1,30 @@
 package com.example.aivoiceapp
 
-import android.app.Activity
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 
-class VoiceAppController(
-    private val activity: Activity
-) {
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
-    fun prepareVoiceRecording(): Boolean {
-        if (!PermissionHelper.hasMicrophonePermission(activity)) {
-            PermissionHelper.requestMicrophonePermission(activity)
-            return false
+        setContent {
+            MaterialTheme {
+                Column(
+                    modifier = Modifier.fillMaxSize(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    Text("AI Voice App")
+                }
+            }
         }
-
-        return true
     }
 }
