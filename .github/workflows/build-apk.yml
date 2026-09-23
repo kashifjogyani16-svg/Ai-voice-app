@@ -50,7 +50,7 @@ jobs:
 
       - name: Build APK
         run: |
-          gradle --settings-file=settings.gradle.kts assembleDebug --refresh-dependencies
+          gradle assembleDebug --refresh-dependencies
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
